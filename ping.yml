@@ -12,3 +12,5 @@
         msg: "{{command_output.stdout}}"
     - set_fact:
         var_string_to_echo: "{{ command_output.stdout }}"
+    - debug: var=var_string_to_echo
+      run_once: true
