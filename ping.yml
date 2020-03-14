@@ -2,7 +2,7 @@
 - hosts: all
   gather_facts: false
   vars:
-    var_cmd: {{ ansible_env.cmd }}
+    var_cmd: {{ cmd }}
   tasks:
     - ping:
     - name: Create variable from command
