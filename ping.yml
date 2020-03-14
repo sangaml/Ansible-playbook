@@ -6,6 +6,7 @@
     - name: Create variable from command
       command: "echo Hello"
       register: command_output
-    - debug: msg="{{command_output.stdout}}"
+    - debug: 
+        msg: "{{command_output.stdout}}"
     - set_fact:
-      string_to_echo: "{{ command_output.stdout }}"
+        var_string_to_echo: "{{ var_command_output.stdout }}"
