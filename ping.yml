@@ -9,4 +9,4 @@
     - debug: 
         msg: "{{command_output.stdout}}"
     - set_fact:
-        var_string_to_echo: "{{ var_command_output.stdout }}"
+        var_string_to_echo: "{{ command_output.stdout }}"
