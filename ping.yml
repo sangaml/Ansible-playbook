@@ -1,1 +1,9 @@
-#
+---
+- hosts: servers
+  vars:
+    lvm_volumes:
+    - vg_name: vg_data
+      lv_name: lv_data
+      disk: sdb
+      filesystem: xfs
+      mount: /mnt
