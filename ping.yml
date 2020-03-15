@@ -10,7 +10,7 @@
     - debug: 
         msg: "{{user.stdout}}"
     - name: Find Available Volume group
-      command: /sbin/vgs --noheadings -o vg_name | tr -d "  "
+      command: /sbin/vgs #--noheadings -o vg_name | tr -d "  "
       register: vg_name_output
     - debug: 
         msg: "{{vg_name_output.stdout}}"
