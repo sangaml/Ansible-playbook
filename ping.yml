@@ -19,7 +19,7 @@
         var_string_to_echo: "{{ vg_name_output.stdout }}"
     - name: Find availabe size in vg
       shell: 
-        " vgs --noheadings -o pv_free | tr -d '  ' | sed 's/\.00m*//g' "
+        " vgs --noheadings -o pv_free | tr -d '  ' | sed 's/\.*//g' "
       register: vg_size_output
     - debug: 
         msg: "{{vg_size_output.stdout}}"
