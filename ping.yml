@@ -5,14 +5,14 @@
   tasks:
     - ping:
     - name: Find Available Volume group
-      command: sudo vgs --noheadings -o vg_name | tr -d '  '
+      command: vgs --noheadings -o vg_name | tr -d '  '
       register: vg_name_output
     - debug: 
         msg: "{{vg_name_output.stdout}}"
     - set_fact:
         var_string_to_echo: "{{ vg_name_output.stdout }}"
     - name: Find availabe size in vg
-      command: sudo vgs --noheadings -o pv_free | tr -d '  ' | sed 's/\.00m*//g'
+      command: vgs --noheadings -o pv_free | tr -d '  ' | sed 's/\.00m*//g'
       register: vg_size_output
     - debug: 
         msg: "{{vg_size_output.stdout}}"
