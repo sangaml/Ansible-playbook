@@ -5,6 +5,7 @@
   tasks:
     - ping:
     - name: Find Available Volume group
+<<<<<<< HEAD
       command: vgs --noheadings -o vg_name | tr -d '  '
       register: vg_name_output
     - debug: 
@@ -17,6 +18,27 @@
     - debug: 
         msg: "{{vg_size_output.stdout}}"
     - set_fact:
+=======
+      command: whoami
+      register: user
+    - debug: 
+        msg: "{{user.stdout}}"
+    - name: Find Available Volume group
+      shell: 
+        " /sbin/vgs --noheadings -o vg_name | tr -d '  '"
+      register: vg_name_output
+    - debug: 
+        msg: "{{vg_name_output.stdout}}"
+    - set_fact:
+        var_string_to_echo: "{{ vg_name_output.stdout }}"
+    - name: Find availabe size in vg
+      shell: 
+        " vgs --noheadings -o pv_free | tr -d '  ' | sed 's/.00m//g' "
+      register: vg_size_output
+    - debug: 
+        msg: "{{vg_size_output.stdout}}"
+    - set_fact:
+>>>>>>> 83205b55c6a1e546bc7c31a56b5115cda487857d
         var_string_to_echo: "{{ vg_size_output.stdout }}"
     - debug: var=var_string_to_echo
       run_once: true
